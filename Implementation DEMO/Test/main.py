@@ -1,4 +1,8 @@
-from manipula import Array, Stack, Queue, LinkedList
+from Iuliana import LinkedList
+from Iuliana import Stack
+from Iuliana import Queue
+from Iuliana import Array
+
 
 def linked_list_test():
     array = [1, 2, 'gg', {'4': [6.7, (5)]}, 4, 5]
@@ -26,6 +30,7 @@ def linked_list_test():
 
     if linked_list:
         print('Linked list is not empty')
+
 
 def stack_test():
     array = [1, 2, 'gg', {'4': [6.7, (5)]}, 4, 5]
@@ -101,8 +106,9 @@ def array_test():
     array[2] = 7
     print(array)
 
+
 if __name__ == '__main__':
-    array_test()
+    linked_list_test()
     stack_test()
     queue_test()
-    linked_list_test()
+    array_test()

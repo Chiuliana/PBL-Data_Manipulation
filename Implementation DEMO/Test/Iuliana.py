@@ -16,6 +16,20 @@ class LinkedList:
         if self.head is not None:
             self.head = self.head.next
 
+    def remove(self, data):
+        if self.head is None:
+            raise Exception("List is empty")
+        if self.head.data == data:
+            self.head = self.head.next
+            return
+        current = self.head
+        while current.next is not None:
+            if current.next.data == data:
+                current.next = current.next.next
+                return
+            current = current.next
+        raise Exception("No such element in list")
+
     def insert_at_index(self, data, index):
         if index == 0:
             self.insert(data)
@@ -107,6 +121,9 @@ class Stack:
     def is_empty(self):
         return len(self.stack) == 0
 
+    def is_full(self):
+        return len(self.stack) == self.max_size
+
     def __str__(self):
         return str(self.stack)
 
@@ -142,6 +159,9 @@ class Queue:
 
     def is_empty(self):
         return len(self.queue) == 0
+
+    def is_full(self):
+        return len(self.queue) == self.max_size
 
     def __str__(self):
         return str(self.queue)
@@ -192,9 +212,17 @@ class Array:
     def remove(self, item):
         self.array.remove(item)
 
-    def sort(self):
-        sorted(self.array)
+    def sort(self, reverse=False):
+        self.array.sort(reverse=reverse)
 
     def reverse(self):
         self.array.reverse()
 
+    def insert(self, item, index=None):
+        if index is None:
+            self.array.append(item)
+        else:
+            self.array.insert(index, item)
+
+    def search(self, item):
+        return self.array.index(item)
